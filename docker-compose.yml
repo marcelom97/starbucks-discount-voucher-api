@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  server:
+    container_name: node
+    restart: on-failure
+    build: .
+    ports:
+      - '5000:5000'
+    links:
+      - db
+      - redis
+    networks:
+      - backend
+    depends_on:
+      - db
+    command: bash -c "/usr/wait-for-it.sh --timeout=0 mongodb:27017 && yarn start"
+  db:
+    container_name: mongodb
+    restart: always
+    image: mongo
+    working_dir: /data
+    ports:
+      - '2717:27017'
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - backend
+networks:
+  backend:
+
+volumes:
+  mongodata:

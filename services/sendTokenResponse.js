@@ -30,7 +30,6 @@ const sendTokenResponse = (user, statusCode, res) => {
     .cookie('token', token, accessOptions)
     .cookie('refreshToken', refreshToken, refreshOptions)
     .json({
-      success: true,
       token,
       refreshToken,
     });

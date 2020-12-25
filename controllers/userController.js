@@ -36,9 +36,14 @@ const createNewUser = asyncHandler(async (req, res, next) => {
  */
 const getAllUsers = asyncHandler(async (req, res, next) => {
   const users = await User.find();
+  const { query } = req;
 
   if (!users) {
     return next(new ErrorResponse('List of Users not found', 404));
+  }
+
+  if (Object.keys(query).length === 0 && query.constructor === Object) {
+    return res.status(200).json({ users });
   }
 
   res.status(200).json(res.advancedResults);

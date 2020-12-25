@@ -34,6 +34,11 @@ const UserSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user',
   },
+  dateOfBirth: {
+    type: Date,
+    required: [true, 'Please provide a valid date of birth'],
+    match: [/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, 'Please provide a valid date of birth'],
+  },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
   createdAt: {

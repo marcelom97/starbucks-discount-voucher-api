@@ -1,10 +1,9 @@
-const { strikethrough } = require('colors');
 const mongoose = require('mongoose');
 
 const UnemployedSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User',
+    ref: 'Users',
     unique: [true, 'User has already applied for discount voucher'],
   },
   fathersName: {
@@ -24,8 +23,9 @@ const UnemployedSchema = new mongoose.Schema({
     required: [true, 'Please provide a valid unemployment number'],
   },
   unemploymentDuaDate: {
-    type: Number,
+    type: String,
     required: [true, 'Please provide a valid unemployment due date'],
+    match: [/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, 'Please provide a valid date of birth'],
   },
   status: {
     type: String,

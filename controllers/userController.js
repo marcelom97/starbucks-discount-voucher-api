@@ -12,7 +12,7 @@ const ErrorResponse = require('../utils/errorResponse');
  */
 const createNewUser = asyncHandler(async (req, res, next) => {
   /* eslint-disable-next-line */
-  const { username, email, password, firstname, lastname } = req.body;
+  const { username, email, password, firstname, lastname, dateOfBirth } = req.body;
 
   const user = await User.create({
     username,
@@ -20,6 +20,7 @@ const createNewUser = asyncHandler(async (req, res, next) => {
     password,
     firstname,
     lastname,
+    dateOfBirth,
   });
 
   res.status(201).json({

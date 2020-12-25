@@ -6,6 +6,7 @@ const { red } = require('colors');
 const connectDB = require('./config/connectDB');
 const errorHandler = require('./middlewares/errorHandler');
 const userRouter = require('./routes/userRouter');
+const unemployedRouter = require('./routes/unemployedRouter');
 
 dotenv.config({ path: './config/config.env' });
 
@@ -24,6 +25,7 @@ app.get('/ping', (req, res, next) => {
 });
 
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/unemployed', unemployedRouter);
 
 app.use(errorHandler);
 

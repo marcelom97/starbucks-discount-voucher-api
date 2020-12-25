@@ -1,5 +1,4 @@
 const express = require('express');
-const cleanCache = require('../middlewares/cleanCache');
 
 const router = express.Router();
 
@@ -15,8 +14,8 @@ const User = require('../models/User');
 
 const advancedResults = require('../middlewares/advancedResults');
 
-router.route('/').post(cleanCache, createNewUser).get(advancedResults(User), getAllUsers);
+router.route('/').post(createNewUser).get(advancedResults(User), getAllUsers);
 
-router.route('/:id').get(getUserById).delete(cleanCache, deleteUserById).put(cleanCache, updateUserById);
+router.route('/:id').get(getUserById).delete(deleteUserById).put(updateUserById);
 
 module.exports = router;

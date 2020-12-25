@@ -1,0 +1,20 @@
+{
+  "name": "starbucks-discount-voucher-api",
+  "version": "1.0.0",
+  "description": "Starbuck voucher discount api for the purposes of the Human Computer Interaction Final Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Marcelo Mollaj",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelom97/starbucks-discount-voucher-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcelom97/starbucks-discount-voucher-api/issues"
+  },
+  "homepage": "https://github.com/marcelom97/starbucks-discount-voucher-api#readme"
+}

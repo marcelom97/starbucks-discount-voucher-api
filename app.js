@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const errorHandler = require('./middlewares/errorHandler');
 
 dotenv.config({ path: './config/config.env' });
 
@@ -16,3 +17,5 @@ app.get('/ping', (req, res, next) => {
     message: 'pong',
   });
 });
+
+app.use(errorHandler);

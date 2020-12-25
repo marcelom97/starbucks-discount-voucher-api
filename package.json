@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/marcelom97/starbucks-discount-voucher-api/issues"
   },
-  "homepage": "https://github.com/marcelom97/starbucks-discount-voucher-api#readme"
+  "homepage": "https://github.com/marcelom97/starbucks-discount-voucher-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "koa": "^2.13.0",
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0"
+  }
 }

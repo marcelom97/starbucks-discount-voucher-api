@@ -1,6 +1,6 @@
 ## Starbucks Discount Voucher API
 ## Tech Stack
 - NodeJS
-- ExpressJS
+- KoaJS
 - MongoDB
 - Docker

@@ -4,7 +4,8 @@
   "description": "Starbuck voucher discount api for the purposes of the Human Computer Interaction Final Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "Marcelo Mollaj",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
   }
 }

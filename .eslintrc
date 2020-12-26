@@ -19,6 +19,7 @@
     "new-cap": "off",
     "prefer-spread": "off",
     "prefer-rest-params": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-underscore-dangle": "off"
   }
 }

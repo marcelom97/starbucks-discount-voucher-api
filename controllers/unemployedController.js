@@ -1,4 +1,5 @@
 const Unemployed = require('../models/Unemployed');
+const User = require('../models/User');
 const asyncHandler = require('../utils/asyncHandler');
 const ErrorResponse = require('../utils/errorResponse');
 
@@ -11,7 +12,11 @@ const ErrorResponse = require('../utils/errorResponse');
  * @path        {POST} /api/v1/unemployed
  */
 const createNewUnemployed = asyncHandler(async (req, res, next) => {
-  const unemployed = await Unemployed.create(req.body);
+  const user = await User.findById(req.user._id);
+  const unemployed = await Unemployed.create({
+    userId: user._id,
+    ...req.body,
+  });
 
   res.status(201).json(unemployed);
 });

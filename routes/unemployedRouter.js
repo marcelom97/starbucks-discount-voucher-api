@@ -6,6 +6,7 @@ const {
   deleteUnemployedById,
   getUnemployedById,
   updateUnemployedById,
+  getUnemployedBySignedInUserId,
 } = require('../controllers/unemployedController');
 
 const Unemployed = require('../models/Unemployed');
@@ -20,10 +21,13 @@ router
   .route('/')
   .get(protectRoute, authorizedUser('admin'), advancedResults(Unemployed), getAllUnemployed)
   .post(protectRoute, createNewUnemployed);
+
 router
   .route('/:id')
-  .get(getUnemployedById)
+  .get(protectRoute, authorizedUser('admin'), getUnemployedById)
   .put(protectRoute, authorizedUser('admin'), updateUnemployedById)
   .delete(protectRoute, authorizedUser('admin'), deleteUnemployedById);
+
+router.route('/get/me').get(protectRoute, getUnemployedBySignedInUserId);
 
 module.exports = router;

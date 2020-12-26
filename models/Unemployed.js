@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const UnemployedSchema = new mongoose.Schema({
-  userId: {
+  user: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Users',
+    ref: 'User',
     unique: [true, 'User has already applied for discount voucher'],
   },
   fathersName: {

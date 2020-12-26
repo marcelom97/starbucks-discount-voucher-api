@@ -17,7 +17,7 @@ const createNewUnemployed = asyncHandler(async (req, res, next) => {
 });
 
 /**
- * @name        module:RoomController#getAllUnemployed
+ * @name        module:UnemployedController#getAllUnemployed
  * @function    getAllUnemployed
  * @description Get all unemployeds with advanced results
  * @path        {GET} /api/v1/unemployed

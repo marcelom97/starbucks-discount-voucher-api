@@ -13,7 +13,7 @@ const authRouter = require('./routes/authRouter');
 
 dotenv.config({ path: './config/config.env' });
 
-const app = (module.exports = express());
+const app = express();
 
 connectDB();
 
@@ -38,3 +38,5 @@ app.use(errorHandler);
 process.on('unhandledRejection', (err) => {
   console.log(red(`Error: ${err.message}`));
 });
+
+module.exports = app;

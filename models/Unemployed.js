@@ -10,6 +10,10 @@ const UnemployedSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a valid father's name"],
   },
+  adt: {
+    type: String,
+    required: [true, 'Please provide a valid identity card number'],
+  },
   afm: {
     type: Number,
     required: [true, 'Please provide a valid afm'],

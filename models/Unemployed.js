@@ -13,14 +13,17 @@ const UnemployedSchema = new mongoose.Schema({
   afm: {
     type: Number,
     required: [true, 'Please provide a valid afm'],
+    unique: [true, 'User has already applied for discount voucher'],
   },
   amka: {
     type: Number,
     required: [true, 'Please provide a valid amka'],
+    unique: [true, 'User has already applied for discount voucher'],
   },
   unemploymentNumber: {
     type: Number,
     required: [true, 'Please provide a valid unemployment number'],
+    unique: [true, 'User has already applied for discount voucher'],
   },
   unemploymentDuaDate: {
     type: String,

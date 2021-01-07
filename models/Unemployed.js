@@ -23,7 +23,6 @@ const UnemployedSchema = new mongoose.Schema({
   unemploymentNumber: {
     type: Number,
     required: [true, 'Please provide a valid unemployment number'],
-    unique: [true, 'User has already applied for discount voucher'],
   },
   unemploymentDuaDate: {
     type: String,
@@ -34,6 +33,12 @@ const UnemployedSchema = new mongoose.Schema({
     type: String,
     enum: ['pending', 'approved', 'rejected'],
     default: 'pending',
+  },
+  points: {
+    type: Number,
+    min: 0,
+    max: 100,
+    default: 0,
   },
   createdAt: {
     type: Date,

@@ -6,13 +6,13 @@ POST http://localhost:5000/api/v1/unemployed
 content-type: application/json
 
 {
-    "firstname": "Marcelo",
-    "lastname": "VIktor",
+    "adt": "11111115",
+    "afm": "11111115",
+    "amka": "11111115",
     "birthdate": "1997-05-17",
-    "adt": "AN 440804",
-    "fathersname": "VIktor",
-    "afm": 11111111,
-    "amka": 11111111,
-    "unemploymentNumber": 11111111,
-    "unemploymentDuaDate": "2021-06-31"
+    "fathersname": "Viktor",
+    "firstname": "Marcelo",
+    "lastname": "Mollaj",
+    "unemploymentDuaDate": "2021-07-31",
+    "unemploymentNumber": "11111115"
 }

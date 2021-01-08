@@ -23,17 +23,17 @@ const UnemployedSchema = new mongoose.Schema({
     required: [true, 'Please provide a valid identity card number'],
   },
   afm: {
-    type: Number,
+    type: String,
     required: [true, 'Please provide a valid afm'],
     unique: [true, 'User has already applied for discount voucher'],
   },
   amka: {
-    type: Number,
+    type: String,
     required: [true, 'Please provide a valid amka'],
     unique: [true, 'User has already applied for discount voucher'],
   },
   unemploymentNumber: {
-    type: Number,
+    type: String,
     required: [true, 'Please provide a valid unemployment number'],
   },
   unemploymentDuaDate: {

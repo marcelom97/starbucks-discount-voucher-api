@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const { red } = require('colors');
 const connectDB = require('./config/connectDB');
 const errorHandler = require('./middlewares/errorHandler');
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
+app.use(cors());
 
 app.get('/ping', (req, res, next) => {
   res.status(200).json({

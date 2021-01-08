@@ -20,15 +20,9 @@ connectDB();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(cors());
-
-app.get('/ping', (req, res, next) => {
-  res.status(200).json({
-    message: 'pong',
-  });
-});
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);

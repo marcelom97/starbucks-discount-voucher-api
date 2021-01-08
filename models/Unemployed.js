@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const UnemployedSchema = new mongoose.Schema({
-  firstName: {
+  firstname: {
     type: String,
     required: [true, 'Please provide a valid first name'],
   },
-  lastName: {
+  lastname: {
     type: String,
     required: [true, 'Please provide a valid last name'],
   },
@@ -14,7 +14,7 @@ const UnemployedSchema = new mongoose.Schema({
     required: [true, 'Please provide a valid birth date'],
     match: [/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, 'Please provide a valid date of format YYYY-MM-DD'],
   },
-  fathersName: {
+  fathersname: {
     type: String,
     required: [true, "Please provide a valid father's name"],
   },

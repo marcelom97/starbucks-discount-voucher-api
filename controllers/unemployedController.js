@@ -1,5 +1,4 @@
 const Unemployed = require('../models/Unemployed');
-const User = require('../models/User');
 const asyncHandler = require('../utils/asyncHandler');
 const ErrorResponse = require('../utils/errorResponse');
 
@@ -12,12 +11,34 @@ const ErrorResponse = require('../utils/errorResponse');
  * @path        {POST} /api/v1/unemployed
  */
 const createNewUnemployed = asyncHandler(async (req, res, next) => {
-  // TODO: needs validation
+  const {
+    firstname,
+    lastname,
+    birthdate,
+    adt,
+    fathersname,
+    afm,
+    amka,
+    unemploymentNumber,
+    unemploymentDuaDate,
+  } = req.body;
+
   const unemployed = await Unemployed.create({
-    ...req.body,
+    firstname,
+    lastname,
+    birthdate,
+    adt,
+    fathersname,
+    afm,
+    amka,
+    unemploymentNumber,
+    unemploymentDuaDate,
   });
 
-  res.status(201).json(unemployed);
+  res.status(201).json({
+    success: true,
+    data: unemployed,
+  });
 });
 
 /**

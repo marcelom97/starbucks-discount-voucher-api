@@ -12,8 +12,8 @@ const ErrorResponse = require('../utils/errorResponse');
  * @path        {POST} /api/v1/unemployed
  */
 const createNewUnemployed = asyncHandler(async (req, res, next) => {
+  // TODO: needs validation
   const unemployed = await Unemployed.create({
-    user: req.user._id,
     ...req.body,
   });
 
@@ -105,27 +105,10 @@ const deleteUnemployedById = asyncHandler(async (req, res, next) => {
   });
 });
 
-/**
- * @name        module:UnemployedController#getUnemployedBySignedInUserId
- * @function    getUnemployedBySignedInUserId
- * @description Get Unemployed By Signed In User ID
- * @path        {GET} /api/v1/unemployed/me
- */
-const getUnemployedBySignedInUserId = asyncHandler(async (req, res, next) => {
-  const unemployed = await Unemployed.findOne({ user: req.user._id });
-
-  if (!unemployed) {
-    return next(new ErrorResponse(`Resource not found with the user id of:${req.user._id}`, 404));
-  }
-
-  res.status(200).json({ unemployed });
-});
-
 module.exports = {
   createNewUnemployed,
   getUnemployedById,
   getAllUnemployed,
   deleteUnemployedById,
   updateUnemployedById,
-  getUnemployedBySignedInUserId,
 };

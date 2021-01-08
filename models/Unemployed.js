@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 
 const UnemployedSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'User',
-    unique: [true, 'User has already applied for discount voucher'],
+  firstName: {
+    type: String,
+    required: [true, 'Please provide a valid first name'],
+  },
+  lastName: {
+    type: String,
+    required: [true, 'Please provide a valid last name'],
+  },
+  birthdate: {
+    type: String,
+    required: [true, 'Please provide a valid birth date'],
+    match: [/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, 'Please provide a valid date of format YYYY-MM-DD'],
   },
   fathersName: {
     type: String,
@@ -31,7 +39,7 @@ const UnemployedSchema = new mongoose.Schema({
   unemploymentDuaDate: {
     type: String,
     required: [true, 'Please provide a valid unemployment due date'],
-    match: [/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, 'Please provide a valid date of birth'],
+    match: [/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/, 'Please provide a valid date of format YYYY-MM-DD'],
   },
   status: {
     type: String,

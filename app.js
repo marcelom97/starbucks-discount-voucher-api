@@ -11,6 +11,7 @@ const errorHandler = require('./middlewares/errorHandler');
 const userRouter = require('./routes/userRouter');
 const unemployedRouter = require('./routes/unemployedRouter');
 const authRouter = require('./routes/authRouter');
+const voucherRouter = require('./routes/voucherRouter');
 
 dotenv.config({ path: './config/config.env' });
 
@@ -32,6 +33,7 @@ app.use(morgan('dev'));
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/unemployed', unemployedRouter);
+app.use('/api/v1/voucher', voucherRouter);
 
 app.use(errorHandler);
 

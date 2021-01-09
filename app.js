@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { red } = require('colors');
+const path = require('path');
 const connectDB = require('./config/connectDB');
 const errorHandler = require('./middlewares/errorHandler');
 
@@ -29,6 +30,8 @@ app.use(
 );
 app.use(cookieParser());
 app.use(morgan('dev'));
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);

@@ -10,9 +10,13 @@ const {
 
 const { protectRoute, authorizedUser } = require('../middlewares/authHandler');
 
+const Unemployed = require('../models/Unemployed');
+
+const advancedResults = require('../middlewares/advancedResults');
+
 const router = express.Router();
 
-router.route('/').get(getAllUnemployed).post(createNewUnemployed);
+router.route('/').get(advancedResults(Unemployed), getAllUnemployed).post(createNewUnemployed);
 
 router
   .route('/:id')

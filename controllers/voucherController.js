@@ -24,6 +24,12 @@ const getDiscountVoucherPdf = asyncHandler(async (req, res, next) => {
     });
   }
 
+  if (unemployed.status === 'pending') {
+    return res.status(404).json({
+      success: false,
+      message: 'The application results are not ready yet'
+    });
+  }
   QRCode.toDataURL(JSON.stringify(unemployed), (err, url) => {
     if (err) {
       return res.status(404).json({

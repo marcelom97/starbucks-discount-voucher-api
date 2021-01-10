@@ -23,21 +23,32 @@ const createNewUnemployed = asyncHandler(async (req, res, next) => {
     unemploymentDuaDate,
   } = req.body;
 
-  const unemployed = await Unemployed.create({
-    firstname,
-    lastname,
-    birthdate,
-    adt,
-    fathersname,
-    afm,
-    amka,
-    unemploymentNumber,
-    unemploymentDuaDate,
-  });
+  // eslint-disable-next-line
+  let points = new Date(birthdate).getFullYear() + new Date(unemploymentDuaDate).getFullYear() - Date.now() * -1;
+  points = (points % 100) + 50;
 
-  res.status(201).json({
-    success: true,
-    data: unemployed,
+  if (birthdate > '1984-12-31') {
+    const unemployed = await Unemployed.create({
+      firstname,
+      lastname,
+      birthdate,
+      adt,
+      fathersname,
+      afm,
+      amka,
+      unemploymentNumber,
+      unemploymentDuaDate,
+      points,
+    });
+
+    return res.status(201).json({
+      success: true,
+      data: unemployed,
+    });
+  }
+  return res.status(400).json({
+    success: false,
+    message: "Your birthdate isn't valid.",
   });
 });
 

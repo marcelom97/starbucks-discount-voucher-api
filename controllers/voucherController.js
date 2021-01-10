@@ -47,4 +47,55 @@ const getDiscountVoucherPdf = asyncHandler(async (req, res, next) => {
   });
 });
 
-module.exports = { getDiscountVoucherPdf };
+/**
+ * @name        module:VoucherController#activateVoucherPointsCalculation
+ * @function    activateVoucherPointsCalculation
+ * @description Triggers the point calculation system.
+ * @path        {POST} /api/v1/voucher/activate
+ */
+const activateVoucherPointsCalculation = asyncHandler(async (req, res, next) => {
+  let unemployeds = await Unemployed.find();
+  if (unemployeds.length === 0) {
+    return res.status(404).json({
+      success: false,
+      message: 'No Unemployed application is present yet.',
+    });
+  }
+
+  await Unemployed.updateMany({ status: 'pending' }, { status: 'approve' }, { multi: true });
+  unemployeds = await Unemployed.find();
+
+  return res.status(200).json({
+    success: true,
+    message: 'Voucher Points Calculation Successfully activated',
+  });
+});
+
+/**
+ * @name        module:VoucherController#rejectVoucherPointsCalculation
+ * @function    rejectVoucherPointsCalculation
+ * @description Triggers the point calculation system.
+ * @path        {POST} /api/v1/voucher/reject
+ */
+const rejectVoucherPointsCalculation = asyncHandler(async (req, res, next) => {
+  const unemployeds = await Unemployed.find();
+  if (unemployeds.length === 0) {
+    return res.status(404).json({
+      success: false,
+      message: 'No Unemployed application is present yet.',
+    });
+  }
+
+  await Unemployed.updateMany({ status: 'approve' }, { status: 'pending' }, { multi: true });
+
+  return res.status(200).json({
+    success: true,
+    message: 'Voucher Points Calculation Successfully rejected',
+  });
+});
+
+module.exports = {
+  getDiscountVoucherPdf,
+  activateVoucherPointsCalculation,
+  rejectVoucherPointsCalculation,
+};

@@ -6,13 +6,18 @@ POST http://localhost:5000/api/v1/unemployed
 content-type: application/json
 
 {
-    "adt": "11111111",
-    "afm": "11111111",
-    "amka": "11111111",
-    "birthdate": "1997-05-17",
+    "adt": "11111114",
+    "afm": "11111114",
+    "amka": "11111114",
+    "birthdate": "1985-05-25",
     "fathersname": "Viktor",
     "firstname": "Marcelo",
     "lastname": "Mollaj",
-    "unemploymentDuaDate": "2021-07-31",
-    "unemploymentNumber": "11111111"
+    "unemploymentDuaDate": "2021-06-30",
+    "unemploymentNumber": "11111114"
 }
+
+###
+POST http://localhost:5000/api/v1/voucher/activate
+###
+POST http://localhost:5000/api/v1/voucher/reject

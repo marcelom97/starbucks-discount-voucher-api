@@ -44,6 +44,7 @@ const createNewUnemployed = asyncHandler(async (req, res, next) => {
     return res.status(201).json({
       success: true,
       data: unemployed,
+      message: `Your application was succesfully created. You will need your Voucher ID (${unemployed._id}) to activate your voucher when your application is approved`,
     });
   }
   return res.status(400).json({

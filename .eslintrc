@@ -10,7 +10,7 @@
     "ecmaVersion": 12
   },
   "rules": {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error"],
     "no-useless-escape": "off",
     "func-names": ["error", "never"],
     "consistent-return": "off",
